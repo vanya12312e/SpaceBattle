@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -20,6 +19,7 @@ public class ShootingScript : MonoBehaviour
 
     private IEnumerator ShootCoroutine()
     {
+
         GameObject bulletInstance = Instantiate(Bullet, firePosition.position, Quaternion.identity, firePosition);
         bulletInstance.transform.eulerAngles = new Vector3(0f, 0, 90f);
         yield return new WaitForSeconds(reloadTime);

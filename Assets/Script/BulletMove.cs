@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
+    [SerializeField] private GameObject particle;
+    [SerializeField] private AudioClip exploision;
     private void Update()
     {
         transform.Translate(Vector2.right * 30 * Time.deltaTime);
@@ -12,6 +14,9 @@ public class BulletMove : MonoBehaviour
         if (col.CompareTag("Meteorit"))
         {
             Destroy(gameObject);
+            Instantiate(particle, transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(exploision, transform.position);
+            
         }
     }
 }
